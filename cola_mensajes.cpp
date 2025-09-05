@@ -17,7 +17,7 @@ struct message {
 };
 
 int main() {
-    key_t key ftok("profgile", 65); // Generar una clave unica para el msg
+    key_t key = ftok("profgile", 65); // Generar una clave unica para el msg
     int msg_int=msgget(key, 066 | IPC_CREAT);
 
     if(msg_int==-1) {
