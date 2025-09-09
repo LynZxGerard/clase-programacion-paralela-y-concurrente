@@ -3,8 +3,13 @@ project(untitled)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(untitled pipe.cpp
-        cola_mensajes.cpp
-        cola_mensajes.h
-        seniales.cpp
-        seniales.h)
+add_executable(untitled semana1/clase/pipe.cpp
+        semana1/clase/cola_mensajes.cpp
+        semana1/clase/cola_mensajes.h
+        semana1/clase/seniales.cpp
+        semana1/clase/seniales.h
+        semana1/tarea/PipeBidireccional.cpp
+        semana1/tarea/ColaMensajesPC.cpp
+        semana1/tarea/SenialesSIGUSR.cpp
+        semana1/tarea/PipeDosHijos.cpp
+)

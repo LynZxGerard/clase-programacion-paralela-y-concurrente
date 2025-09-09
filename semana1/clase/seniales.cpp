@@ -2,8 +2,7 @@
 // Created by peque on 05/09/2025.
 //
 
-#include "seniales.h"
-#include "cola_mensajes.h"
+#include "../seniales.h
 #include <cstring>
 #include <csignal>
 #include <iostream>

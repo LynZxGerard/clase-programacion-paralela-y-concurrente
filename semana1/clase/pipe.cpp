@@ -36,3 +36,6 @@ int main() {
 
     return 0;
 }
+
+// OUTPOUT
+// Padre recibió: Hola mundo desde el hijo

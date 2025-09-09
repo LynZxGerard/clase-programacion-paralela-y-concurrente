@@ -38,5 +38,8 @@ int main() {
 
     // Eliminar de cola
     msgctl(msg_int, IPC_RMID, NULL);
-
 }
+
+// OUPUT
+// enviado
+// recibido
