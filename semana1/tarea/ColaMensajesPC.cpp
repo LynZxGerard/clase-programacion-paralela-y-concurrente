@@ -10,50 +10,67 @@
 #include <sys/wait.h>
 
 struct message {
-    long tipo;
-    char texto[100];
+    long tipo;          // Tipo de mensaje
+    char texto[100];    // Contenido del mensaje
 };
 
 int main() {
-    key_t key = ftok("profgile", 65); // generate unique key
+    // Genera una clave única para identificar la cola de mensajes
+    key_t key = ftok("profgile", 65);
     int msg_id = msgget(key, 0666 | IPC_CREAT);
+
     if (msg_id == -1) {
-        perror("msgget");
+        perror("Error al crear/obtener la cola de mensajes");
         return 1;
     }
 
-    pid_t pid = fork();
+    pid_t pid = fork();  // Crear un proceso hijo
+
     if (pid < 0) {
-        perror("fork");
+        perror("Error en fork");
         return 1;
     }
 
-    if (pid == 0) { // Child: Consumer
+    if (pid == 0) {
+        // =============================
+        // PROCESO HIJO → CONSUMIDOR
+        // =============================
         for (int i = 0; i < 7; ++i) {
             message msg;
-            // Receive messages of type 1
+
+            // Recibir mensajes del tipo 1
             if (msgrcv(msg_id, &msg, sizeof(msg.texto), 1, 0) == -1) {
-                perror("msgrcv");
+                perror("Error al recibir mensaje");
                 return 1;
             }
-            std::cout << "Consumer received: " << msg.texto << std::endl;
+
+            std::cout << "Consumidor recibio: " << msg.texto << std::endl;
         }
         return 0;
-    } else { // Parent: Producer
+
+    } else {
+        // =============================
+        // PROCESO PADRE → PRODUCTOR
+        // =============================
         for (int i = 0; i < 7; ++i) {
             message msg;
-            msg.tipo = 1;
-            snprintf(msg.texto, sizeof(msg.texto), "Message %d from producer", i+1);
+            msg.tipo = 1; // Todos los mensajes son del tipo 1
+
+            // Crear el texto del mensaje
+            snprintf(msg.texto, sizeof(msg.texto), "Mensaje %d del productor", i+1);
+
+            // Enviar mensaje
             if (msgsnd(msg_id, &msg, sizeof(msg.texto), 0) == -1) {
-                perror("msgsnd");
+                perror("Error al enviar mensaje");
                 return 1;
             }
-            std::cout << "Producer sent: " << msg.texto << std::endl;
+
+            std::cout << "Productor envio: " << msg.texto << std::endl;
         }
 
-        wait(NULL); // Wait for child to finish
+        wait(NULL); // Espera a que el hijo termine
 
-        // Remove the message queue
+        // Eliminar la cola de mensajes
         msgctl(msg_id, IPC_RMID, NULL);
     }
 
@@ -61,17 +78,17 @@ int main() {
 }
 
 // OUTPUT ===================================
-// Producer sent: Message 1 from producer
-// Producer sent: Message 2 from producer
-// Producer sent: Message 3 from producer
-// Producer sent: Message 4 from producer
-// Producer sent: Message 5 from producer
-// Producer sent: Message 6 from producer
-// Producer sent: Message 7 from producer
-// Consumer received: Message 1 from producer
-// Consumer received: Message 2 from producer
-// Consumer received: Message 3 from producer
-// Consumer received: Message 4 from producer
-// Consumer received: Message 5 from producer
-// Consumer received: Message 6 from producer
-// Consumer received: Message 7 from producer
+// Productor envio: Mensaje 1 del productor
+// Productor envio: Mensaje 2 del productor
+// Productor envio: Mensaje 3 del productor
+// Productor envio: Mensaje 4 del productor
+// Productor envio: Mensaje 5 del productor
+// Productor envio: Mensaje 6 del productor
+// Productor envio: Mensaje 7 del productor
+// Consumidor recibio: Mensaje 1 del productor
+// Consumidor recibio: Mensaje 2 del productor
+// Consumidor recibio: Mensaje 3 del productor
+// Consumidor recibio: Mensaje 4 del productor
+// Consumidor recibio: Mensaje 5 del productor
+// Consumidor recibio: Mensaje 6 del productor
+// Consumidor recibio: Mensaje 7 del productor
