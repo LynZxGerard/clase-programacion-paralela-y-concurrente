@@ -12,4 +12,6 @@ add_executable(untitled semana1/clase/pipe.cpp
         semana1/tarea/ColaMensajesPC.cpp
         semana1/tarea/SenialesSIGUSR.cpp
         semana1/tarea/PipeDosHijos.cpp
+        semana2/clase/SocketServer.cpp
+        semana2/clase/SocketCliente.cpp
 )
