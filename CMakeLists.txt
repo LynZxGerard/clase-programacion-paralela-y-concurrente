@@ -14,4 +14,6 @@ add_executable(untitled semana1/clase/pipe.cpp
         semana1/tarea/PipeDosHijos.cpp
         semana2/clase/SocketServer.cpp
         semana2/clase/SocketCliente.cpp
+        semana2/tarea/SocketClienteT.cpp
+        semana2/tarea/SocketServerT.cpp
 )
