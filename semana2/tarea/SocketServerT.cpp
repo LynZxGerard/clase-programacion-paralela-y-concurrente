@@ -20,7 +20,7 @@ int main() {
         return 1;
     }
 
-    // Preparar dirección del servidor (IP + puerto)
+    // Preparar direccion del servidor (IP + puerto)
     address.sin_family = AF_INET;
     address.sin_addr.s_addr = INADDR_ANY; // aceptar conexiones de cualquier IP
     address.sin_port = htons(8080);
@@ -39,7 +39,7 @@ int main() {
 
     std::cout << "Servidor esperando en puerto 8080..." << std::endl;
 
-    // Aceptar conexión entrante
+    // Aceptar conexion entrante
     client_fd = accept(server_fd, (struct sockaddr*)&address, &addrlen);
     if (client_fd < 0) {
         perror("accept");
@@ -63,14 +63,14 @@ int main() {
 
         std::cout << "Cliente: " << msg << std::endl;
 
-        // Si recibe un mensaje de salida, cerrar conexión
+        // Si recibe un mensaje de salida, cerrar conexion
         if (msg == "exit" || msg == "terminar" || msg == "0") {
-            std::cout << "Cliente solicitó cerrar la conexión." << std::endl;
+            std::cout << "Cliente solicito cerrar la conexion." << std::endl;
             break;
         }
 
         // Enviar respuesta al cliente
-        std::string respuesta = "Servidor recibió: " + msg;
+        std::string respuesta = "Servidor recibio: " + msg;
         send(client_fd, respuesta.c_str(), respuesta.size(), 0);
     }
 

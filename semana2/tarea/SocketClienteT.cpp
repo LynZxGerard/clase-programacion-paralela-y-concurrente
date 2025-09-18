@@ -19,7 +19,7 @@ int main() {
         return 1;
     }
 
-    // Configuración de dirección del servidor
+    // Configuracion de direccion del servidor
     serv_addr.sin_family = AF_INET;
     serv_addr.sin_port = htons(8080);
 
@@ -40,7 +40,7 @@ int main() {
     // Bucle principal del chat
     while (true) {
         std::string input;
-        std::cout << "Tú: ";
+        std::cout << "Tu: ";
         std::getline(std::cin, input);  // leer mensaje del usuario
 
         // Enviar mensaje al servidor
@@ -48,7 +48,7 @@ int main() {
 
         // Si es un mensaje de salida, terminamos el bucle
         if (input == "exit" || input == "terminar" || input == "0") {
-            std::cout << "Cerrando conexión..." << std::endl;
+            std::cout << "Cerrando conexion..." << std::endl;
             break;
         }
 
