@@ -17,4 +17,6 @@ add_executable(untitled semana1/clase/pipe.cpp
         semana2/tarea/SocketClienteT.cpp
         semana2/tarea/SocketServerT.cpp
         semana3/clase/MemoriaCompartida.cpp
+        semana3/tarea/MemoriaCompartidaT.cpp
+        semana3/tarea/MemoriaCompartidaAlterno.cpp
 )
