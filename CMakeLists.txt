@@ -19,4 +19,6 @@ add_executable(untitled semana1/clase/pipe.cpp
         semana3/clase/MemoriaCompartida.cpp
         semana3/tarea/MemoriaCompartidaT.cpp
         semana3/tarea/MemoriaCompartidaAlterno.cpp
+        semana4/clase/PiMPI.c
+        semana4/clase/SumaMPI.c
 )
