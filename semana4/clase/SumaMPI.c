@@ -8,7 +8,7 @@
 
 // Esto se corre con;
 // mpicc SumaMPI.c -o SumaMPI
-// mpirun -np# ./SumaMPI.c
+// mpirun -np # ./SumaMPI.c
 // Donde # -> Numero de procesos
 
 // Si uso # -> 4 ----> Suma = 12
