@@ -24,4 +24,7 @@ add_executable(untitled semana1/clase/pipe.cpp
         semana5/clase/Hilos1.cpp
         semana5/clase/Hilos2.cpp
         semana5/clase/Hilos3.cpp
+        semana5/tarea/Hilos1.cpp
+        semana5/tarea/Hilos2.cpp
+        semana5/tarea/Hilos3.cpp
 )
