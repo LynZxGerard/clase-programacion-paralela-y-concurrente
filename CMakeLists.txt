@@ -28,4 +28,10 @@ add_executable(untitled semana1/clase/pipe.cpp
         semana5/tarea/Hilos2.cpp
         semana5/tarea/Hilos3.cpp
         semana8/tarea/ExTime.cpp
+        semana8/tarea/ContadorSimple_S.cpp
+        semana8/tarea/ContadorSimple_P.cpp
+        semana8/tarea/MultiplicacionVectorial_S.cpp
+        semana8/tarea/MultiplicacionVectorial_P.cpp
+        semana8/tarea/MultiplicacionMatricial_S.cpp
+        semana8/tarea/MultiplicacionMatricial_P.cpp
 )
