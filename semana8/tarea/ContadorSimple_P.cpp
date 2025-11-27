@@ -15,6 +15,7 @@ int main() {
 
     double start = omp_get_wtime(); // inicio del cronómetro
 
+    // Este funciona de forma PARALELA
     // Paraleliza el for
     // y usa reduction(+:contador) para sumar sin el problema de la condicion de carrera
 #pragma omp parallel for reduction(+:contador)

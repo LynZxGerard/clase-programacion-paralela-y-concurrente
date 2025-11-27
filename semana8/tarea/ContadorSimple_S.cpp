@@ -13,7 +13,7 @@ int main() {
 
     double start = omp_get_wtime(); // inicio del cronómetro
 
-    // 🔹 Versión secuencial: un solo hilo cuenta
+    // Este funciona de forma SECUENCIAL
     for (int i = 0; i < N; i++) {
         contador += i;
     }

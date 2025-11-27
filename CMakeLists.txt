@@ -34,4 +34,6 @@ add_executable(untitled semana1/clase/pipe.cpp
         semana8/tarea/MultiplicacionVectorial_P.cpp
         semana8/tarea/MultiplicacionMatricial_S.cpp
         semana8/tarea/MultiplicacionMatricial_P.cpp
+        proyecto-final/proyecto_defectuoso.cpp
+        proyecto-final/proyecto_corregido.cpp
 )
